@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>This is for you 'Abir' 😊</title>
+  <style>
+    :root{--bg:#0f172a;--card:#0b1220;--accent:#ff4757;--muted:#cbd5e1}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, Arial; background:linear-gradient(180deg,#0b1220 0%, #071026 100%); color:white}
+    .page{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100vh;padding:24px;gap:18px}
+
+    /* Logo circle */
+    .logo-circle{
+      width:200px;height:200px;border-radius:999px;display:flex;align-items:center;justify-content:center;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.06), rgba(255,255,255,0.02)), linear-gradient(180deg,#112131,#081018);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6), inset 0 2px 8px rgba(255,255,255,0.02);
+      border: 4px solid rgba(255,255,255,0.03);
+      overflow:hidden
+    }
+    .logo-circle img{width:88%;height:88%;object-fit:cover;border-radius:50%}
+    h1.small{font-size:18px;color:var(--muted);margin-top:6px}
+
+    .btn{appearance:none;border:0;padding:12px 20px;border-radius:30px;background:var(--accent);color:white;font-weight:700;cursor:pointer;box-shadow:0 6px 18px rgba(255,71,87,0.12);transition:transform .14s ease}
+    .btn:active{transform:translateY(1px) scale(.998)}
+
+    .video-wrap{max-width:900px;width:100%;display:flex;flex-direction:column;gap:12px;align-items:center}
+    iframe{width:100%;height:450px;border-radius:12px;background:#000;border:0}
+
+    .back{background:transparent;border:2px solid rgba(255,255,255,0.08);padding:8px 14px;border-radius:10px;color:var(--muted);cursor:pointer}
+
+    @media (max-width:480px){
+      .logo-circle{width:150px;height:150px}
+      .btn{padding:10px 16px}
+      iframe{height:260px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page 1 -->
+  <main id="page1" class="page">
+    <div class="logo-circle">
+      <img src="logo.jpg" alt="logo" />
+    </div>
+
+    <h1 class="small">this is for you 😊</h1>
+
+    <button id="watchBtn" class="btn">watch demon slayer infinity castle</button>
+  </main>
+
+  <!-- Page 2 -->
+  <section id="page2" class="page" style="display:none">
+    <div class="video-wrap">
+
+      <!-- StreamTape Video Embed -->
+      <iframe 
+        src="https://streamtape.com/e/bq11w1WbveFPPl7/"
+        allowfullscreen
+        allow="autoplay">
+      </iframe>
+
+      <button id="backBtn" class="back">← Back</button>
+    </div>
+  </section>
+
+  <script>
+    const page1 = document.getElementById('page1');
+    const page2 = document.getElementById('page2');
+    const watchBtn = document.getElementById('watchBtn');
+    const backBtn = document.getElementById('backBtn');
+
+    watchBtn.addEventListener('click', () => {
+      page1.style.display = 'none';
+      page2.style.display = 'flex';
+      window.scrollTo({top:0});
+    });
+
+    backBtn.addEventListener('click', () => {
+      page2.style.display = 'none';
+      page1.style.display = 'flex';
+      window.scrollTo({top:0});
+    });
+  </script>
+
+</body>
+</html>
